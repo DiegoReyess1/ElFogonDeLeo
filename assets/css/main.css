@@ -1,29 +1,44 @@
+/**
+* Template Name: Delicious
+* Template URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
+* Updated: Aug 07 2024 with Bootstrap v5.3.3
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
 
+/*--------------------------------------------------------------
+# Font & Color Variables
+# Help: https://bootstrapmade.com/color-system/
+--------------------------------------------------------------*/
+/* Fonts */
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "American Typewriter";
+  --heading-font: "Satisfy",  sans-serif;
   --nav-font: "Poppins",  sans-serif;
 }
 
-/* Colores Globales - Las siguientes variables de color se utilizan en todo el sitio web. Actualizarlas aquí cambiará el esquema de color de todo el sitio web */
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Color de fondo para todo el sitio web, incluidas las secciones individuales */
-  --default-color: #444444; /* Color predeterminado utilizado para la mayoría del contenido textual en todo el sitio web */
-  --heading-color: #433f39; /* Color para encabezados, subencabezados y títulos en todo el sitio web */
-  --accent-color: #ffb03b; /* Color de acento que representa tu marca en el sitio web. Se utiliza en botones, enlaces y otros elementos que necesitan destacarse */
-  --surface-color: #ffffff; /* El color de superficie se utiliza como fondo de elementos en cajas dentro de las secciones, como tarjetas, cajas de iconos u otros elementos que requieren una separación visual del fondo global. */
-  --contrast-color: #ffffff; /* Color de contraste para el texto, asegurando legibilidad contra fondos de colores de acento, encabezado o colores predeterminados. */
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #433f39; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #ffb03b; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
-/* Colores del Menú de Navegación - Las siguientes variables de color se utilizan específicamente para el menú de navegación. Son diferentes de los colores globales para permitir más opciones de personalización */
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #ffffff;  /* El color predeterminado de los enlaces del menú de navegación principal */
-  --nav-hover-color: #ffb03b; /* Aplicado a los enlaces del menú de navegación principal cuando se pasan por encima o están activos */
-  --nav-mobile-background-color: #ffffff; /* Utilizado como el color de fondo para el menú de navegación móvil */
+  --nav-color: #ffffff;  /* The default color of the main navmenu links */
+  --nav-hover-color: #ffb03b; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #ffb03b; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
-/* Color Presets: Estas clases sobrescriben los colores globales cuando se aplican a cualquier sección o elemento, permitiendo la reutilización del mismo esquema de color. */
 .light-background {
   --background-color: #fffaf3;
   --surface-color: #ffffff;
@@ -37,16 +52,14 @@
   --contrast-color: #ffffff;
 }
 
-/* Esto permite al usuario que el desplazamiento dentro de la página sea suave */
+/* Smooth scroll */
 :root {
   scroll-behavior: smooth;
 }
 
 /*--------------------------------------------------------------
-# Estilos Generales y Clases Compartidas
+# General Styling & Shared Classes
 --------------------------------------------------------------*/
-
-
 body {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -74,9 +87,8 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/* Botón de Reproducción Pulsante
+/* Pulsating Play Button
 ------------------------------*/
-
 .pulsating-play-btn {
   width: 94px;
   height: 94px;
@@ -104,8 +116,6 @@ h6 {
   left: -15%;
   background: rgba(198, 16, 0, 0);
 }
-
-
 
 .pulsating-play-btn:after {
   content: "";
@@ -156,6 +166,57 @@ h6 {
   }
 }
 
+/* PHP Email Form Messages
+------------------------------*/
+.php-email-form .error-message {
+  display: none;
+  background: #df1529;
+  color: #ffffff;
+  text-align: left;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.php-email-form .sent-message {
+  display: none;
+  color: #ffffff;
+  background: #059652;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.php-email-form .loading {
+  display: none;
+  background: var(--surface-color);
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+}
+
+.php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid var(--accent-color);
+  border-top-color: var(--surface-color);
+  animation: php-email-form-loading 1s linear infinite;
+}
+
+@keyframes php-email-form-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 /*--------------------------------------------------------------
 # Global Header
@@ -173,7 +234,7 @@ h6 {
 .header .topbar {
   background-color: var(--background-color);
   padding: 10px 0 0 0;
-  font-size: 15px;
+  font-size: 14px;
   transition: all 0.5s;
 }
 
@@ -201,9 +262,6 @@ h6 {
   transition: 0.3s;
 }
 
-
-
-
 .header .topbar .contact-info i a:hover {
   color: var(--contrast-color);
   text-decoration: underline;
@@ -213,13 +271,12 @@ h6 {
   color: var(--contrast-color);
   background: var(--accent-color);
   font-weight: 500;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 1px;
   display: inline-block;
   padding: 6px 30px 8px 30px;
   border-radius: 50px;
   transition: 0.3s;
-
 }
 
 .header .topbar .cta-btn:hover {
@@ -253,28 +310,6 @@ h6 {
   --background-color: rgba(21, 17, 13, 0.85);
 }
 
-
-/*Nombre del usuario que ingresa y menu desplegable css*/
-
-.navbar-brand:hover, .nav-link:hover {
-  color: #ff9f30 !important; 
-}
-
-.dropdown-menu {
-  background-color: white; /* color de fondo oscuro */
-  font-size: 12px;
-}
-
-.dropdown-menu .dropdown-item:hover {
-
-  color: #ff9f30; /* color del texto */
-}
-
-
-
-
-
-
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -300,7 +335,7 @@ h6 {
   .navmenu a:focus {
     color: var(--nav-color);
     padding: 18px 15px;
-    font-size: 16px;
+    font-size: 14px;
     font-family: var(--nav-font);
     font-weight: 400;
     display: flex;
@@ -352,7 +387,7 @@ h6 {
     padding: 10px 20px;
     font-size: 15px;
     text-transform: none;
-    color: black;
+    color: var(--nav-dropdown-color);
   }
 
   .navmenu .dropdown ul a i {
@@ -409,7 +444,7 @@ h6 {
     padding: 10px 0;
     margin: 0;
     border-radius: 6px;
-    background-color: var(--nav-mobile-background-color);  /*Color de fondo del responsive Navegador*/
+    background-color: var(--nav-mobile-background-color);
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
@@ -418,7 +453,7 @@ h6 {
 
   .navmenu a,
   .navmenu a:focus {
-    color: black; /*Color de letra del responsive navegador*/
+    color: var(--nav-dropdown-color);
     padding: 10px 20px;
     font-family: var(--nav-font);
     font-size: 17px;
@@ -1035,13 +1070,10 @@ section,
 }
 
 .menu .menu-img {
-  width: 75px; /* Ajusta este valor para el tamaño que desees */
-  height: 75px; /* Ajusta este valor para el tamaño que desees */
-  border-radius: 50%; /* Mantén la forma circular */
+  width: 80px;
+  border-radius: 50%;
   float: left;
   border: 8px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  object-fit: cover; /* Asegura que la imagen se recorte y mantenga la proporción */
-  margin-top: -10px; /* Levanta la imagen un poco */
 }
 
 .menu .menu-content {
@@ -1053,7 +1085,7 @@ section,
 }
 
 .menu .menu-content::after {
-  content: "..................................................................................................................."; /* Puntos hasta el precio */
+  content: "......................................................................" "...................................................................." "....................................................................";
   position: absolute;
   left: 20px;
   right: 0;
@@ -1084,11 +1116,6 @@ section,
   z-index: 3;
   padding: 0 10px;
   font-weight: 600;
-  margin-right: 15px; /* Añadir espacio entre el precio y el botón */
-}
-
-.menu .add-to-cart-btn {
-  margin-left: 10px; /* Espacio adicional entre el precio y el botón */
 }
 
 .menu .menu-ingredients {
@@ -1255,7 +1282,7 @@ section,
 }
 
 /*--------------------------------------------------------------
-# RESERVAy ESTILOS
+# Book A Table Section
 --------------------------------------------------------------*/
 .book-a-table .reservation-img {
   min-height: 500px;
@@ -1264,7 +1291,7 @@ section,
 }
 
 .book-a-table .reservation-form-bg {
-  background: color-mix(in srgb, var(--default-color), transparent 70%);
+  background: color-mix(in srgb, var(--default-color), transparent 97%);
 }
 
 .book-a-table .php-email-form {
@@ -1283,62 +1310,13 @@ section,
 .book-a-table .php-email-form input[type=date],
 .book-a-table .php-email-form input[type=time],
 .book-a-table .php-email-form textarea {
-  font-size: 15px;
+  font-size: 14px;
   padding: 10px 15px;
   box-shadow: none;
   border-radius: 0;
   color: var(--default-color);
   background-color: color-mix(in srgb, var(--background-color), transparent 20%);
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 4px;
-}
-
-.dropdown button:hover {
-  background-color: #45a049;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 4px;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-
-.profile-info {
-  margin-bottom: 20px;
 }
 
 .book-a-table .php-email-form input[type=text]:focus,
@@ -1356,7 +1334,7 @@ section,
 .book-a-table .php-email-form input[type=date]::placeholder,
 .book-a-table .php-email-form input[type=time]::placeholder,
 .book-a-table .php-email-form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 10%);
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
 .book-a-table .php-email-form button[type=submit] {
@@ -1372,254 +1350,95 @@ section,
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
-/* Estilo para el select */
-.book-a-table .php-email-form select {
-  font-size: 15px;
-  padding: 10px 15px;
-  box-shadow: none; /* Elimina la sombra */
-  border-radius: 0;
-  color: var(--default-color);
-  background-color: color-mix(in srgb, var(--background-color), transparent 20%);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%); /* Borde normal */
-  width: 100%;
-  margin-bottom: 15px; /* Espaciado entre campos */
+/*--------------------------------------------------------------
+# Gallery Section
+--------------------------------------------------------------*/
+.gallery .gallery-item {
+  overflow: hidden;
+  border-right: 3px solid var(--background-color);
+  border-bottom: 3px solid var(--background-color);
 }
 
-/* Estilo para el select cuando está en foco */
-.book-a-table .php-email-form select:focus {
-  border: 1px solid #ffb03b; /* Borde naranja (color deseado) */
-  outline: none; /* Elimina el contorno al enfocar */
-  box-shadow: 0 0 5px rgba(255, 176, 59, 0.5); /* Sombra opcional */
+.gallery .gallery-item img {
+  transition: all ease-in-out 0.4s;
 }
 
-/* Cambiar el color de las opciones cuando el cursor pasa por encima */
-.book-a-table .php-email-form select option:hover {
-  background-color: #ffb03b; /* Color naranja (el que especificaste) */
-  color: white; /* Texto blanco sobre el fondo naranja */
+.gallery .gallery-item:hover img {
+  transform: scale(1.1);
 }
 
-/* Estilo de placeholder para el select */
-.book-a-table .php-email-form select::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 10%);
+/*--------------------------------------------------------------
+# Chefs Section
+--------------------------------------------------------------*/
+.chefs .member {
+  position: relative;
 }
 
+.chefs .member .pic {
+  overflow: hidden;
+  margin-bottom: 50px;
+}
 
-/* Estilo para el botón de submit (Insertar) */
-.insertar-button {
-  color: var(--contrast-color);
-  background: var(--accent-color);
-  border: 0;
-  padding: 14px 60px;
-  transition: 0.4s;
-  border-radius: 4px;
-  cursor: pointer;
+.chefs .member .member-info {
+  background-color: var(--surface-color);
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: -50px;
+  left: 20px;
+  right: 20px;
+  padding: 20px 15px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.chefs .member h4 {
+  font-weight: 700;
+  margin-bottom: 10px;
   font-size: 16px;
-  display: inline-block;
+  position: relative;
+  padding-bottom: 10px;
+  font-family: var(--default-font);
 }
 
-.insertar-button:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+.chefs .member h4::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: color-mix(in srgb, var(--default-color), transparent 60%);
+  bottom: 0;
+  left: 0;
 }
 
-.insertar-button:focus {
-  outline: none;
-  box-shadow: 0 0 5px rgba(255, 176, 59, 0.5); /* Sombra al hacer foco */
+.chefs .member span {
+  font-style: italic;
+  display: block;
+  font-size: 13px;
 }
 
-
-/* Estilo base para el formulario */
-
-
-/* Estilo para los campos de texto, email, número, fecha, time, textarea y select */
-.simple-form input[type="text"],
-.simple-form input[type="email"],
-.simple-form input[type="number"],
-.simple-form input[type="date"],
-.simple-form input[type="time"],
-.simple-form textarea,
-.simple-form select {
-  width: 100%;
-  padding: 12px 15px;
-  font-size: 15px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);  /* Borde similar al ejemplo */
-  border-radius: 0;  /* Sin bordes redondeados */
-  margin-bottom: 20px;
-  background-color: color-mix(in srgb, var(--background-color), transparent 20%);  /* Fondo similar al ejemplo */
-  color: var(--default-color); /* Color del texto */
-  transition: all 0.3s ease;
+.chefs .member .social {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
 }
 
-/* Estilo cuando el campo está en foco */
-.simple-form input[type="text"]:focus,
-.simple-form input[type="email"]:focus,
-.simple-form input[type="number"]:focus,
-.simple-form input[type="date"]:focus,
-.simple-form input[type="time"]:focus,
-.simple-form textarea:focus,
-.simple-form select:focus {
-  border-color: var(--accent-color);  /* Borde naranja al enfocar */
-  background-color: color-mix(in srgb, var(--background-color), transparent 40%);  /* Fondo ligeramente más oscuro al enfocar */
-  outline: none; /* Eliminar contorno */
-  box-shadow: none; /* Eliminar sombra */
+.chefs .member .social a {
+  transition: color 0.3s;
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
-/* Placeholder para los campos de texto */
-.simple-form input::placeholder,
-.simple-form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 10%);
+.chefs .member .social a:hover {
+  color: var(--accent-color);
 }
 
-/* Estilo para el botón de submit */
-.simple-form button[type="submit"] {
-  color: var(--contrast-color);
-  background: var(--accent-color);
-  border: 0;
-  padding: 14px 60px;
-  transition: 0.4s;
-  border-radius: 0;  /* Sin bordes redondeados */
-  cursor: pointer;
+.chefs .member .social i {
   font-size: 16px;
-  display: inline-block;
+  margin: 0 2px;
 }
 
-/* Estilo cuando el botón está en hover */
-.simple-form button[type="submit"]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
-}
-
-/* Estilo para el select */
-.simple-form select {
-  font-size: 15px;
-  padding: 10px 15px;
-  box-shadow: none; /* Elimina la sombra */
-  border-radius: 0; /* Sin bordes redondeados */
-  color: var(--default-color);
-  background-color: color-mix(in srgb, var(--background-color), transparent 20%);  /* Fondo transparente */
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%); /* Borde normal */
-  width: 100%;
-  margin-bottom: 15px; /* Espaciado entre campos */
-}
-
-/* Estilo para el select cuando está en foco */
-.simple-form select:focus {
-  border: 1px solid #ffb03b; /* Borde naranja al enfocar */
-  outline: none; /* Elimina el contorno al enfocar */
-  box-shadow: none; /* Elimina la sombra */
-}
-
-/* Cambiar el color de las opciones cuando el cursor pasa por encima */
-.simple-form select option:hover {
-  background-color: #ffb03b; /* Color naranja sobre hover */
-  color: white; /* Texto blanco sobre el fondo naranja */
-}
-
-/* Estilo de placeholder para el select */
-.simple-form select::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 10%);
-}
-
-/* Estilo para el botón Insertar */
-.insertar-button {
-  color: var(--contrast-color);
-  background: var(--accent-color);
-  border: 0;
-  padding: 14px 60px;
-  transition: 0.4s;
-  border-radius: 0;  /* Sin bordes redondeados */
-  cursor: pointer;
-  font-size: 16px;
-  display: inline-block;
-}
-
-/* Estilo cuando el botón Insertar está en hover */
-.insertar-button:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
-}
-
-.insertar-button:focus {
-  outline: none;
-  box-shadow: none; /* Elimina la sombra */
-}
-
-/* Responsividad */
-@media (max-width: 575px) {
-  .simple-form {
-    padding: 20px;
-  }
-}
-
-
-/* CONTENEDOR PARA ADMINISTRADOR/PAGINAS DE INSERTA, ACTUALIZAR, ELIMINAR */
-.simple-form {
-  padding: 30px;
-  background-color: transparent;  /* Fondo transparente */
-  border: none; /* Elimina cualquier borde del contenedor */
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-right: 300px;  /* Espacio adicional a la derecha */
-  position: relative;  /* Es necesario para que los elementos hijos con position: absolute funcionen */
-}
-
-/* Contenedor del botón y la imagen */
-.imagen-subir-container {
-  position: relative; /* Necesario para colocar elementos dentro de este contenedor de forma absoluta */
-  display: inline-block; /* Asegura que el contenedor ocupe solo el espacio necesario */
-  top: -65px;
-  left: 613px;
-}
-
-.imagen-boton-container {
-  position: relative; /* Necesario para colocar elementos dentro de este contenedor de forma absoluta */
-  display: inline-block; /* Asegura que el contenedor ocupe solo el espacio necesario */
-  top: -65px;
-  left: 590px;
-}
-
-
-/* Contenedor de la imagen previa */
-/* Estilos del contenedor del marco que siempre será visible */
-#imagen-previa-container {
-  position: absolute;  
-  top: 21px;            /* 5px desde la parte superior */
-  right: 70px;          /* 5px desde el borde derecho */
-  display: block;      /* Siempre visible */
-  z-index: 10;         /* Asegura que la imagen esté por encima de otros elementos */
-  padding: 10px;       /* Agrega un poco de espacio al contenedor */
-  min-width: 150px;    /* Establece un tamaño mínimo para que el marco no se "deforme" */
-
-}
-
-/* Estilo para la imagen cargada */
-#imagen-previa {
-  max-width: 150px;  /* Limita el tamaño de la imagen */
-  display: none;     /* La imagen no se muestra al principio */
-}
-
-.marco-imagen {
-  border: 1px solid #555;  /* Borde */
-  border-radius: 0px;  /* Bordes sin redondear */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Sombra */
-  display: inline-block;  /* El contenedor se ajustará al tamaño de la imagen */
-  background-color: #f0f0f0;  /* Color de fondo */
-  text-align: center;
-  color: black;  /* Color de texto */
-  font-size: 14px;  /* Tamaño de fuente */
-  padding: 5px;
-  vertical-align: top;  /* Alineación vertical para evitar espacio extra abajo */
-  
-}
-
-.marco-imagen img {
-  max-width: 100%;  /* La imagen no superará el ancho del contenedor */
-  height: auto;  /* La altura se ajustará*/
-}
-
-
-.custom-file-upload-label:hover {
-  background-color: #ff8c00; /* Cambia el color del fondo cuando el mouse pasa por encima */
-}
-
-/*
+/*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
 .testimonials {
@@ -1845,154 +1664,8 @@ section,
 }
 
 /*--------------------------------------------------------------
-/* Estilo general del contenedor del formulario */
-#InsertarP {
-  max-width: 600px;
-  margin: 20px auto;  /* Reduzco el margen superior para que esté más arriba */
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  height: auto;
-  max-height: calc(100vh - 100px);  /* Hace que el formulario tenga un max-height calculado según la altura de la ventana */
-  overflow-y: auto;  /* Habilita el scroll solo cuando sea necesario */
+# Starter Section Section
+--------------------------------------------------------------*/
+.starter-section {
+  /* Add your styles here */
 }
-
-/* Título del formulario */
-#InsertarP h2 {
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-/* Espaciado y estilo de las etiquetas */
-#InsertarP p {
-  margin-bottom: 10px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #555;
-}
-
-/* Campos de entrada */
-#InsertarP input[type="text"],
-#InsertarP input[type="file"],
-#InsertarP select {
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  color: #333;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-bottom: 15px;
-  transition: border-color 0.3s ease;
-}
-
-#InsertarP input[type="text"]:focus,
-#InsertarP input[type="file"]:focus,
-#InsertarP select:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
-}
-
-/* Botón de envío */
-#InsertarP input[type="submit"] {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #28a745;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#InsertarP input[type="submit"]:hover {
-  background-color: #218838;
-}
-
-/* Ajuste del select */
-#InsertarP select {
-  background-color: #f8f9fa;
-  appearance: none;
-}
-
-/* Cambiar el color de las opciones del select cuando el cursor pasa por encima */
-#InsertarP select option:hover {
-  background-color: #ffb03b;  
-  color: white;  /* Cambiar texto a blanco para contraste */
-}
-
-
-/* Diseño responsivo */
-@media (max-width: 768px) {
-  #InsertarP {
-    max-width: 100%;
-    padding: 15px;
-  }
-}
-
-
-
-
-
-
-/*ENVOLTURA SORPRESA*/
-
-.envoltura-sorpresa {
-  width: 100%;
-  height: 400px;
-  position: relative;
-  overflow: hidden;
-}
-
-.portada-gigante {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.oscurecer-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Ajusta el nivel de opacidad aquí */
-
-}
-
-
-
-
-
-  /* Ocultamos el input de tipo file */
-  .custom-file-upload {
-    display: none;
-  }
-
-  /* Estilo del label que actuará como el botón de subida */
-  .custom-file-upload-label {
-    padding: 10px 20px;
-    background-color: #4b5e73;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    display: inline-block;
-  }
-
-  /* Cambio de color cuando se pasa el cursor sobre el botón */
-  .custom-file-upload-label:hover {
-    background-color: #101b27;
-  }
-
-
-  
-

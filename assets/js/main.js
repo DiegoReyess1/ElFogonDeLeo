@@ -215,11 +215,3 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
-
-
-
-document.getElementById('eliminar-perfil').addEventListener('click', function(event) {
-  if (!confirm('¿Estás seguro de que deseas eliminar tu perfil? Esta acción no se puede deshacer.')) {
-      event.preventDefault();  // Detener el envío del formulario si el usuario cancela
-  }
-});
